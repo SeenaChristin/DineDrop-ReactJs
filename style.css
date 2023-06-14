@@ -109,7 +109,16 @@
 .res-card.shimmer{
     border: .5px solid #dfd0d0;
     box-shadow: 0px 15px 40px 10px #1a1d2826;
-    width: 200px;
+    width: 230px;
     height: 300px;
     
+}
+.about-us{
+    margin-top: 100px;
+}
+.contact-us{
+    margin-top: 100px;
+}
+.restaurant-page{
+    margin-top: 100px;
 }

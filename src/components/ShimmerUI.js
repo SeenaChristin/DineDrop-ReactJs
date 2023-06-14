@@ -9,15 +9,9 @@
             </button>
             </div>
             <div className="shimmer-container">
-            <div className="res-card shimmer"></div>
-            <div className="res-card shimmer"></div>
-            <div className="res-card shimmer"></div>
-            <div className="res-card shimmer"></div>
-            <div className="res-card shimmer"></div>
-            <div className="res-card shimmer"></div>
-            <div className="res-card shimmer"></div>
-            <div className="res-card shimmer"></div>
-            <div className="res-card shimmer"></div>
+                {Array(10).fill("").map((e,index)=>(
+                  <div key={index} className="res-card shimmer" ></div>
+                ))}
             </div>
             </>
         );
