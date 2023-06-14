@@ -1,10 +1,23 @@
-.header {
+#root{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+}
+.app{
+    max-width: 1200px;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: #fff;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-around;
     border: 1px solid rgb(162, 115, 115);
     padding: 0 15px;
 }
-
 .logo {
     width: 100px;
 }
@@ -19,9 +32,44 @@
     padding: 10px;
     margin: 10px;
 }
+.login{
+    width: 80px;
+    height: 40px;
+    margin: 10px;
+    padding: 5px;
+    font-size: 18px;
+}
+.body{
+    margin-top: 100px;
+}
 .filter{
-    margin-top:  20px;
-    margin-left: 10px;
+    display: flex;
+    
+}
+.search{
+    height: 13px;
+    margin-top: 20px;
+    margin-left: 32px;
+    padding: 10px;
+    border: 1px solid #dfd0d0;
+    
+}
+.search-btn{
+    margin-top: 20px;
+    font-size: 15px;
+    height: 35px;
+    padding: 5px;
+    background-color: #fefbf3;
+    border: .5px solid #dfd0d0;
+    cursor: pointer;
+}
+.filter-btn{
+    margin-top: 20px;
+    margin-left: 32px;
+    background-color: #fefbf3;
+    border: .5px solid #dfd0d0;
+    padding: 10px;
+    cursor: pointer;
 }
 .res-container{
     display: flex;
@@ -29,16 +77,39 @@
     padding: 5px;
 }
 .res-card{
-    width: 200px;
-    background-color: #efe7d8;
-    padding: 10px;
-    margin: 10px;
+    width: 230px;
+    background-color: rgb(255 251 243);
+    margin: 30px;
     border: 1px solid transparent;
 }
 .res-card:hover{
-    border: 0.5px solid rgb(162, 115, 115);
+    border: .5px solid #dfd0d0;
+    box-shadow: 0px 15px 40px 10px #1a1d2826;
 }
 .res-logo{
     width: 100%;
-    border: 0.3px dotted rgb(162, 115, 115);
+}
+.cuisines{
+    font-size: 15px;
+    letter-spacing: 0.5;
+}
+.res-details{
+    padding: 20px;
+}
+.details{
+    display: flex;
+    font-size: 13px;
+    justify-content: space-between;
+}
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 100px;
+}
+.res-card.shimmer{
+    border: .5px solid #dfd0d0;
+    box-shadow: 0px 15px 40px 10px #1a1d2826;
+    width: 200px;
+    height: 300px;
+    
 }
