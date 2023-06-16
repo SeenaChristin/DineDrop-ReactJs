@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Body from "./components/Body";
 import Header from "./components/Header";
@@ -7,6 +7,8 @@ import AboutUs from "./components/AboutUs";
 import Error from "./components/Error";
 import ContactUs from "./components/ContactUs";
 import RestaurantPage from "./components/RestaurantPage";
+
+const Instamart = lazy(()=>import("./components/Instamart"));
 
 const AppLayout = () => {
     return (
@@ -34,6 +36,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactUs/>
+      },
+      {
+        path: "/instamart",
+        element:(
+        <Suspense>
+          <Instamart/>
+          </Suspense>
+        ), 
       },
       {
         path: "/restaurant/:id",

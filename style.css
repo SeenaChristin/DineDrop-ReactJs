@@ -121,4 +121,17 @@
 }
 .restaurant-page{
     margin-top: 100px;
+    display: flex;
+}
+.menu{
+    font-size: 18px;
+}
+.offline{
+    margin-top: 100px;
+}
+.online-offline{
+    margin-top: 14px;
+}
+.instamart{
+    margin-top: 100px;
 }

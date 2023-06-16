@@ -2,6 +2,8 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import ShimmerUi from "./ShimmerUI";
 import {Link} from "react-router-dom";
+import { filterData } from "../utils/helper";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
     const [listOfRestaurants,setListofres] = useState([]);
@@ -19,6 +21,11 @@ const Body = () => {
     setListofres(json?.data?.cards[2]?.data?.data?.cards);
     setFilteredList(json?.data?.cards[2]?.data?.data?.cards);
     };
+    
+    const online = useOnline();
+    if(!online){
+        return <h1 className="offline">Your connection is lost</h1>;
+    }
 
     return listOfRestaurants.length === 0? <ShimmerUi/> : (
         <div className="body">
@@ -30,9 +37,7 @@ const Body = () => {
                 ></input>
                 <button className="search-btn"
                 onClick={()=>{
-                  const newList = listOfRestaurants.filter(
-                    (res)=>res.data.name.toLowerCase().includes(searchText.toLowerCase())
-                    );
+                  const newList = filterData(searchText,listOfRestaurants);
                     setFilteredList(newList);
                 }}
                 >Search</button>
