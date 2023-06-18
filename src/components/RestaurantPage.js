@@ -12,11 +12,11 @@ const RestaurantPage = ()=>{
 
     return !resData ? <ShimmerUi/> :
     (
-        <div className="restaurant-page">
+        <div className="mt-28 flex">
             <div>
             <h1>{resData?.cards[0].card?.card?.info?.name}</h1>
               <img
-            className="res-logo-page"
+            className="w-3/4"
             alt="res-logo"
              src= {CDN_URL + resData?.cards[0].card?.card?.info?.cloudinaryImageId}
             />
@@ -24,7 +24,7 @@ const RestaurantPage = ()=>{
             <h2>{resData?.cards[0].card?.card?.info?.city}</h2>
             <h2>{resData?.cards[0].card?.card?.info?.costForTwoMessage}</h2>
             </div>
-            <div className="menu"><b>Menu</b>
+            <div className="text-lg"><b>Menu</b>
                 <ul>
                     {resData?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards.map((card)=> <li>{card.card.info.name }</li>)}
                 </ul>

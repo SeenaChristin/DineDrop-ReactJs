@@ -24,25 +24,28 @@ const Body = () => {
     
     const online = useOnline();
     if(!online){
-        return <h1 className="offline">Your connection is lost</h1>;
+        return <h1 className="mt-28">Your connection is lost</h1>;
     }
 
     return listOfRestaurants.length === 0? <ShimmerUi/> : (
-        <div className="body">
-            <div className="filter">
-                <input className="search" value={searchText}
+        <div className="mt-24">
+            <div className="flex">
+                <input className="h-9 mt-5 ml-8 p-2 border border-solid
+                border-orange-100" 
+                value={searchText}
                 onChange={(e)=>{
                  setSearchText(e.target.value);
                 }}
                 ></input>
-                <button className="search-btn"
+                <button className="m-5 text-sm h-9 p-2 bg-orange-50 cursor-pointer"
                 onClick={()=>{
                   const newList = filterData(searchText,listOfRestaurants);
                     setFilteredList(newList);
                 }}
                 >Search</button>
                 <button 
-                className="filter-btn"
+                className="mt-5 ml-8 h-9 text-sm bg-orange-50 border border-solid border-orange-100
+                p-2 cursor-pointer"
                  onClick={()=>{
                     const newList = listOfRestaurants.filter(
                         (res)=> res.data.avgRating>4.2
@@ -52,7 +55,7 @@ const Body = () => {
                 >Top-rated Restaurants
                 </button>
             </div>
-            <div className="res-container">
+            <div className="flex flex-wrap p-1">
             {
                 filteredList.map((restaurant)=>(
                     <Link

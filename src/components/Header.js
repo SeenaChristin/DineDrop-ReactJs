@@ -7,21 +7,23 @@ const Header = () => {
   const [btnLogin, setBtnLogin] = useState("Login");
   const isOnline = useOnline();
     return(
-        <div className="header">
+        <div className="h-24 flex fixed top-0 left-0 right-0
+        bg-orange-50 z-0 justify-around
+        border border-solid border-amber-800 px-4">
           <div className="logo-container">
-            <img className ="logo"
+            <img className ="w-24"
               src= {LOGO_URL}
              /> 
           </div>
           <div className="nav-items">
-           <ul>
-            <Link to="/"><li>Home</li></Link>
-            <Link to="/about"><li>About Us</li></Link>
-            <Link to="/contact"><li>Contact Us</li></Link>
-            <li>Cart</li>
-            <Link to="/instamart"><li>Instamart</li></Link>
-            <h3 className="online-offline">{isOnline?"🟢":"🔘"}</h3>
-            <button className="login"
+           <ul className="text-xl flex">
+            <Link to="/"><li className="p-3 m-5">Home</li></Link>
+            <Link to="/about"><li className="p-3 m-5">About Us</li></Link>
+            <Link to="/contact"><li className="p-3 m-5">Contact Us</li></Link>
+            <li className="p-3 m-5">Cart</li>
+            <Link to="/instamart"><li className="p-3 m-5">Instamart</li></Link>
+            <h3 className="mt-9">{isOnline?"🟢":"🔘"}</h3>
+            <button className="w-20 h-10 m-5 p-3 text-xl"
             onClick={()=>{
               btnLogin == "Login"? setBtnLogin("Logout"): setBtnLogin("Login");
             }}
