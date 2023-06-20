@@ -26,7 +26,7 @@ const RestaurantPage = ()=>{
             </div>
             <div className="text-lg"><b>Menu</b>
                 <ul>
-                    {resData?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards.map((card)=> <li>{card.card.info.name }</li>)}
+                    {resData?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards.map((card,index)=> <li key={index}>{card.card.info.name }</li>)}
                 </ul>
                 
                 </div>
