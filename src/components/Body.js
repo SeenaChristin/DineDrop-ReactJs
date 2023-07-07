@@ -2,7 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useContext, useEffect, useState } from "react";
 import ShimmerUi from "./ShimmerUI";
 import {Link} from "react-router-dom";
-import { filterData } from "../utils/helper";
+import { filterData, randomXToY } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/UserContext";
 
@@ -17,11 +17,16 @@ const Body = () => {
 
     const fetchData = async () =>{
         const data = await fetch(
-           "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.82667&lng=77.5549333&page_type=DESKTOP_WEB_LISTING"
+           "https://www.themealdb.com/api/json/v1/1/filter.php?i=salt",
+    
         );
     const json = await data.json();
-    setListofres(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredList(json?.data?.cards[2]?.data?.data?.cards);
+    json.meals.map((meal)=>{
+        meal['price'] = randomXToY(100, 600);
+        return meal;
+    })
+    setListofres(json.meals);
+    setFilteredList(json.meals);
     };
     
     const online = useOnline();
@@ -45,7 +50,7 @@ const Body = () => {
                     setFilteredList(newList);
                 }}
                 >Search</button>
-                <button 
+                {/* <button 
                 className="mt-5 ml-8 h-9 text-sm bg-orange-50 border border-solid border-orange-100
                 p-2 cursor-pointer"
                  onClick={()=>{
@@ -55,7 +60,7 @@ const Body = () => {
                     setFilteredList(newList);
                  }}
                 >Top-rated Restaurants
-                </button>
+                </button> */}
                 <input className="h-9 mt-5 ml-8 p-2 border border-solid
                 border-orange-100" 
                 value={user.name} 
@@ -70,13 +75,10 @@ const Body = () => {
             </div>
             <div className="flex flex-wrap p-1">
             {
-                filteredList.map((restaurant)=>(
-                    <Link
-                     to={"/restaurant/" + restaurant.data.id} 
-                    key={restaurant.data.id}
-                    >
-                    <RestaurantCard  resData={restaurant}/>
-                    </Link>
+                filteredList.map((food)=>(
+                 
+                    <RestaurantCard key={food.idMeal} meals={food}/>
+                    
                 ))
             }
             </div>
